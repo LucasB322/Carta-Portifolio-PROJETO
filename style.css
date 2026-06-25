@@ -1,0 +1,188 @@
+/* =======================================================
+   VARIÁVEIS DE COR (facilita trocar o tema todo de uma vez)
+   ======================================================= */
+:root {
+  --bg-pagina: #1b1f3b;      /* azul-marinho escuro do fundo da página */
+  --bg-card: #fdfaf3;        /* branco "papel" do cartão */
+  --texto: #1b1f3b;          /* cor do texto principal */
+  --accent: #ff7b54;         /* coral - cor de destaque */
+  --accent-suave: #ffe5c2;   /* pêssego claro - fundo da caixa de intro */
+  --chip-bg: #f1eee2;        /* fundo bege claro dos itens da lista */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* =======================================================
+   FUNDO DA PÁGINA (requisito: cor de fundo da página)
+   ======================================================= */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-pagina);
+  font-family: 'Nunito', sans-serif;  /* requisito: fonte personalizada (texto) */
+  color: var(--texto);                /* requisito: cor do texto */
+  padding: 40px 16px;
+}
+
+/* =======================================================
+   CARTÃO PRINCIPAL
+   ======================================================= */
+.card-perfil {
+  background-color: var(--bg-card);
+  border: 3px solid var(--texto);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  padding: 32px 28px;                 /* requisito: padding em pelo menos um elemento */
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  text-align: center;
+
+  /* Necessário para a animação de "abrir como um cartão" */
+  transform-origin: top center;
+  perspective: 1000px;
+  animation: abrirCard 1s ease-out forwards;
+}
+
+/* =======================================================
+   TÍTULO COM O NOME (requisito: heading centralizado)
+   ======================================================= */
+.nome {
+  font-family: 'Fredoka', sans-serif;  /* requisito: fonte personalizada (título) */
+  font-size: 1.7rem;
+  color: var(--accent);
+  text-align: center;                  /* requisito: heading centralizado */
+  margin: 0 0 20px 0;                  /* requisito: margem */
+
+  opacity: 0;
+  animation: revelar 0.6s ease-out forwards;
+  animation-delay: 0.9s;
+}
+
+/* =======================================================
+   FOTO DE PERFIL (requisito: borda na imagem)
+   ======================================================= */
+.foto-perfil {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--accent);     /* requisito: borda na imagem */
+  margin: 0 auto 24px auto;            /* requisito: margem */
+  display: block;
+
+  opacity: 0;
+  animation: revelar 0.6s ease-out forwards;
+  animation-delay: 1.05s;
+}
+
+/* =======================================================
+   CAIXA DE INTRODUÇÃO (desafio extra: borda + fundo + padding)
+   ======================================================= */
+.caixa-intro {
+  background-color: var(--accent-suave); /* fundo destacado */
+  border: 2px solid var(--accent);       /* borda destacada */
+  border-radius: 14px;
+  padding: 16px 18px;                    /* padding destacado */
+  margin: 0 0 24px 0;
+  text-align: left;
+
+  opacity: 0;
+  animation: revelar 0.6s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+.caixa-intro p {
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* =======================================================
+   LISTA DE GOSTOS (hobby, comida, filme/série)
+   ======================================================= */
+.lista-gostos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.lista-gostos li {
+  background-color: var(--chip-bg);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  margin: 10px 0;     /* requisito: margem */
+  padding: 10px 14px; /* requisito: padding */
+
+  opacity: 0;
+  animation: revelar 0.6s ease-out forwards;
+}
+
+.rotulo {
+  display: block;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.78rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+/* Atraso diferente para cada item da lista, criando o efeito
+   de revelação em sequência */
+.lista-gostos li:nth-child(1) { animation-delay: 1.35s; }
+.lista-gostos li:nth-child(2) { animation-delay: 1.5s; }
+.lista-gostos li:nth-child(3) { animation-delay: 1.65s; }
+
+/* =======================================================
+   ANIMAÇÃO PRINCIPAL: o cartão "abrindo"
+   Começa achatado e inclinado (como uma tampa fechada),
+   e termina na posição normal (cartão aberto).
+   ======================================================= */
+@keyframes abrirCard {
+  0% {
+    transform: scaleY(0.05) rotateX(-90deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scaleY(1.05) rotateX(8deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+/* =======================================================
+   ANIMAÇÃO SECUNDÁRIA: revelar o conteúdo de dentro do cartão
+   (título, foto, intro e itens da lista) um pouco depois
+   que o cartão termina de abrir.
+   ======================================================= */
+@keyframes revelar {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respeita usuários que preferem reduzir animações no sistema */
+@media (prefers-reduced-motion: reduce) {
+  .card-perfil,
+  .nome,
+  .foto-perfil,
+  .caixa-intro,
+  .lista-gostos li {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
