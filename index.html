@@ -3,40 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cartão de Perfil Pessoal</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Lucas Benício — Perfil Profissional</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <main class="card-perfil">
+    <div class="layout">
 
-    <h1 class="nome">Ana Clara Souza</h1>
+      <!-- Coluna esquerda: foto, nome e cargo -->
+      <aside class="coluna-foto">
+        <img
+          src="Pi.jpg"
+          alt="Foto de perfil de Lucas Benício"
+          class="foto-perfil"
+        >
 
-    <img
-      src="https://i.pravatar.cc/300?img=47"
-      alt="Foto de perfil de Ana Clara Souza"
-      class="foto-perfil"
-    >
+        <h1 class="nome">Lucas Benício</h1>
+        <p class="cargo">Estudante de Análise e Desenvolvimento de Sistemas</p>
 
-    <section class="caixa-intro">
-      <p>
-        Olá! Eu sou estudante e adoro aprender coisas novas, principalmente
-        sobre tecnologia e criatividade. Nas horas livres, gosto de juntar
-        essas duas paixões em pequenos projetos pessoais.
-      </p>
-    </section>
+        <ul class="tags-habilidades">
+          <li>Front-End</li>
+          <li>Mobile</li>
+          <li>UI/UX</li>
+          <li>Trabalho em equipe</li>
+        </ul>
+      </aside>
 
-    <ul class="lista-gostos">
-      <li><span class="rotulo">Hobby favorito</span> Desenhar e jogar videogame</li>
-      <li><span class="rotulo">Comida favorita</span> Pizza de calabresa</li>
-      <li><span class="rotulo">Filme/Série favorito</span> Stranger Things</li>
-    </ul>
+      <!-- Coluna direita: sobre mim e interesses -->
+      <section class="coluna-conteudo">
 
+        <article class="caixa-intro">
+          <span class="rotulo-secao">Sobre mim</span>
+
+          <p>
+            Olá! Meu nome é Lucas Benício e sou estudante de Análise e
+            Desenvolvimento de Sistemas, apaixonado por tecnologia,
+            desenvolvimento de software e criação de experiências digitais.
+          </p>
+          <p>
+            Minha jornada com programação começou antes da faculdade,
+            desenvolvendo pequenos projetos e explorando ideias que
+            despertaram meu interesse por lógica, design e construção de
+            soluções. Desde então, venho evoluindo constantemente minhas
+            habilidades técnicas e criativas.
+          </p>
+          <p>
+            Tenho experiência com desenvolvimento Front-End, criação de
+            interfaces, desenvolvimento de aplicações mobile e construção de
+            projetos utilizando tecnologias modernas. Além da programação,
+            também possuo interesse em design digital, buscando unir
+            funcionalidade, organização e uma boa experiência para o usuário.
+          </p>
+          <p>
+            Ao longo da minha trajetória profissional, desenvolvi
+            habilidades como comunicação, trabalho em equipe, organização e
+            atendimento ao público, experiências que fortaleceram minha
+            capacidade de resolver problemas e colaborar em diferentes
+            ambientes.
+          </p>
+          <p>
+            Me considero uma pessoa objetiva, dedicada e focada em evolução
+            contínua, sempre buscando aprender novas tecnologias e
+            transformar ideias em projetos reais.
+          </p>
+          <p>
+            Meu objetivo é crescer profissionalmente na área de tecnologia,
+            participar de projetos desafiadores e continuar desenvolvendo
+            soluções que gerem impacto positivo.
+          </p>
+        </article>
+
+        <article class="caixa-interesses">
+          <span class="rotulo-secao">Interesses pessoais</span>
+          <ul class="lista-gostos">
+            <li><span class="rotulo">Hobby favorito</span> Desenhar e jogar videogame</li>
+            <li><span class="rotulo">Comida favorita</span> Pizza de calabresa</li>
+            <li><span class="rotulo">Filme/Série favorito</span> Full Metal Alchemists</li>
+          </ul>
+        </article>
+
+      </section>
+
+    </div>
   </main>
 
 </body>
